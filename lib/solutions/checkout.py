@@ -32,6 +32,7 @@ def checkout(skus):
 
     total = 0
 
+    ##greedy algorithm
     tmp_basket = basket.copy()
     for deal in deals:
         while criteria(deal['consume'], tmp_basket):
