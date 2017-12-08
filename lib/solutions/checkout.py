@@ -17,10 +17,11 @@ def checkout(skus):
 
     total = 0
     for item in basket:
-        if item in deals:
-            total += (basket[item] % deals[item][0]) * prices[item]
-        if basket[item] >= deals[item][0]:
+        if item in deals and basket[item] >= deals[item][0]:
             # excess
             total += (basket[item] // deals[item][0]) * deals[item][1]
+            total += (basket[item] % deals[item][0]) * prices[item]
+        else:
+            total += (basket[item] * prices[item])
 
     return total
