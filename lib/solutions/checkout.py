@@ -1,3 +1,13 @@
+def criteria(consume, basket):
+    print(consume, basket)
+    valid = True
+    for k in consume:
+        if k in basket and basket[k] >= consume[k]:
+            basket[k] -= consume[k]
+        else:
+            valid = False
+    return valid
+
 # noinspection PyUnusedLocal
 def checkout(skus):
     prices = {'A': 50, 'B': 30, 'C': 20, 'D': 15, 'E': 40}
@@ -21,25 +31,13 @@ def checkout(skus):
             basket[item] = 1
 
     total = 0
-    for item in basket:
-        total += basket[item] * prices[item]
 
-    for item in basket:
-        if item in deals:
-            amount = basket[item]
-            for deal in deals[item]:
-                print(deal)
-                while amount >= deal[0]:
-                    if isinstance(deal[1], int):
-                        total += deal[1]
-                    elif isinstance(deal[1], dict):
-                        for k in deal[1]:
-                            if k in basket and basket[k] >= deal[1][k]:
-                                total -= deal[1][k] * prices[k]
-                        total += deal[0] * prices[item]
-                    amount -= deal[0]
-            total += amount * prices[item]
-        else:
-            total += (basket[item] * prices[item])
+    tmp_basket = basket.copy()
+    for deal in deals:
+        while criteria(deal['consume'], tmp_basket):
+            total += deal['output']
+
+    for item in tmp_basket:
+        total += basket[item] * prices[item]
 
     return total
