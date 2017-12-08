@@ -1,6 +1,6 @@
 # noinspection PyUnusedLocal
 def checkout(skus):
-    prices = {'A': 50, 'B': 30, 'C': 20, 'D': 15}
+    prices = {'A': 50, 'B': 30, 'C': 20, 'D': 15, 'E': 40}
     deals = {
         'A': [(5, 200), (3, 130)],
         'B': [(2, 45)],
@@ -24,7 +24,7 @@ def checkout(skus):
         if item in deals:
             amount = basket[item]
             for deal in deals[item]:
-                while amount > deal[0]:
+                while amount >= deal[0]:
                     if isinstance(deal[1], int):
                         total += deal[1]
                     elif isinstance(deal[1], dict):
