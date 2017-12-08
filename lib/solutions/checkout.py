@@ -18,13 +18,17 @@ def consume(consume, basket):
         if len(k) > 1:
             for i in k:
                 amt = 0
+                print(i, amt)
                 if i in basket:
                     if (amt + basket[i]) > consume[k]:
-                        basket[i] -= consume[k] - amt
+                        left = consume[k] - amt
+                        basket[i] -= left
+                        amt += left
                     else:
                         amt += basket[i]
                         basket[i] = 0
             print(basket)
+            print(amt)
         else:
             basket[k] -= consume[k]
 
