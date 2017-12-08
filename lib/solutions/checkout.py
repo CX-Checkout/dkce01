@@ -31,7 +31,7 @@ def checkout(skus):
                         # .. what if B is part of another deal... which takes precedence?
                         for k in deal[1]:
                             if k in basket:
-                                basket[k] -= deal[1][k]
+                                total -= deal[1][k] * prices[k]
                             print(basket)
                         total += deal[0] * prices[item]
                     amount -= deal[0]
