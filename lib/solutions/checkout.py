@@ -23,6 +23,8 @@ def consume(consume, basket):
                         basket[i] -= consume[k] - amt
                     else:
                         amt += basket[i]
+                        basket[i] = 0
+            print(basket)
         else:
             basket[k] -= consume[k]
 
