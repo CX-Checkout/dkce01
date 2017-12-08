@@ -1,5 +1,5 @@
 def criteria(consume, basket):
-    print(consume, basket)
+    print('{}\t\t{}'.format(consume, basket))
     valid = True
     for k in consume:
         if k in basket and basket[k] >= consume[k]:
