@@ -37,8 +37,10 @@ def checkout(skus):
     for deal in deals:
         while criteria(deal['consume'], tmp_basket):
             total += deal['output']
+            print(total)
 
     for item in tmp_basket:
         total += tmp_basket[item] * prices[item]
+        print(total)
 
     return total
