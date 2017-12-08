@@ -4,8 +4,8 @@ def checkout(skus):
     deals = {'A': (3, 130), 'B': (2, 45)}
     basket = {}
 
-    if not isinstance(skus, str):
-        raise ValueError('skus must be str')
+    # if not isinstance(skus, str):
+    #     raise ValueError('skus must be str')
 
     for item in skus:
         if item not in prices:
