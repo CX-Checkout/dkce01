@@ -11,13 +11,29 @@ def consume(consume, basket):
 
 # noinspection PyUnusedLocal
 def checkout(skus):
-    prices = {'A': 50, 'B': 30, 'C': 20, 'D': 15, 'E': 40, 'F': 10}
+    prices = {
+        'A': 50, 'B': 30, 'C': 20, 'D': 15, 'E': 40, 'F': 10,
+        'G': 20, 'H': 10, 'I': 35, 'J': 60, 'K': 80, 'L': 90,
+        'M': 15, 'N': 40, 'O': 10, 'P': 50, 'Q': 30, 'R': 50,
+        'S': 30, 'T': 20, 'U': 40, 'V': 50, 'W': 20, 'X': 90,
+        'Y': 10, 'Z': 50
+    }
     deals = [
         {'consume': {'A': 5}, 'output': 200, 'savings': 50},
+        {'consume': {'P': 5}, 'output': 200, 'savings': 50},
+        {'consume': {'U': 4}, 'output': 120, 'savings': 40},
         {'consume': {'E': 2, 'B': 1}, 'output': 80, 'savings': 30},
+        {'consume': {'R': 3, 'Q': 1}, 'output': 150, 'savings': 30},
+        {'consume': {'H': 10}, 'output': 80, 'savings': 20},
+        {'consume': {'V': 3}, 'output': 130, 'savings': 20},
         {'consume': {'A': 3}, 'output': 130, 'savings': 20},
         {'consume': {'B': 2}, 'output': 45, 'savings': 15},
-        {'consume': {'F': 3}, 'output': 20, 'savings': 10}
+        {'consume': {'N': 3, 'M': 1}, 'output': 120, 'savings': 15},
+        {'consume': {'K': 2}, 'output': 150, 'savings': 10},
+        {'consume': {'V': 2}, 'output': 90, 'savings': 10},
+        {'consume': {'Q': 3}, 'output': 80, 'savings': 10},
+        {'consume': {'F': 3}, 'output': 20, 'savings': 10},
+        {'consume': {'H': 5}, 'output': 45, 'savings': 5}
     ]
     basket = {}
 
