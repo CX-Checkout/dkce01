@@ -11,12 +11,13 @@ def consume(consume, basket):
 
 # noinspection PyUnusedLocal
 def checkout(skus):
-    prices = {'A': 50, 'B': 30, 'C': 20, 'D': 15, 'E': 40}
+    prices = {'A': 50, 'B': 30, 'C': 20, 'D': 15, 'E': 40, 'F': 10}
     deals = [
         {'consume': {'A': 5}, 'output': 200, 'savings': 50},
         {'consume': {'E': 2, 'B': 1}, 'output': 80, 'savings': 30},
         {'consume': {'A': 3}, 'output': 130, 'savings': 20},
         {'consume': {'B': 2}, 'output': 45, 'savings': 15},
+        {'consume': {'F': 3}, 'output': 20, 'savings': 10}
     ]
     basket = {}
 
