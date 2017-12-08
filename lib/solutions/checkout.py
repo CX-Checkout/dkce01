@@ -14,10 +14,11 @@ def criteria(consume, basket):
     return valid
 
 def consume(consume, basket):
+    print(basket, consume)
     for k in consume:
         if len(k) > 1:
+            amt = 0
             for i in k:
-                amt = 0
                 print(i, amt)
                 if i in basket:
                     if (amt + basket[i]) > consume[k]:
@@ -26,6 +27,7 @@ def consume(consume, basket):
                         amt += left
                     else:
                         amt += basket[i]
+                        print(amt)
                         basket[i] = 0
             print(basket)
             print(amt)
