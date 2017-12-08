@@ -49,7 +49,7 @@ def checkout(skus):
         {'consume': {'A': 3}, 'output': 130, 'savings': 20},
         {'consume': {'B': 2}, 'output': 45, 'savings': 15},
         {'consume': {'N': 3, 'M': 1}, 'output': 120, 'savings': 15},
-        {'consume': {'XYSTZ': 3}, 'output': 45, 'savings': 15},
+        {'consume': {'ZYSTX': 3}, 'output': 45, 'savings': 15},
         {'consume': {'K': 2}, 'output': 120, 'savings': 10},
         {'consume': {'V': 2}, 'output': 90, 'savings': 10},
         {'consume': {'Q': 3}, 'output': 80, 'savings': 10},
@@ -76,6 +76,7 @@ def checkout(skus):
     for deal in deals:
         while criteria(deal['consume'], tmp_basket):
             consume(deal['consume'], tmp_basket)
+            print(tmp_basket)
             total += deal['output']
 
     for item in tmp_basket:
