@@ -28,7 +28,6 @@ def checkout(skus):
                     if isinstance(deal[1], int):
                         total += deal[1]
                     elif isinstance(deal[1], dict):
-                        # .. what if B is part of another deal... which takes precedence?
                         for k in deal[1]:
                             if k in basket:
                                 total -= deal[1][k] * prices[k]
