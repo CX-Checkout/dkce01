@@ -2,12 +2,13 @@ def criteria(consume, basket):
     valid = True
     for k in consume:
         if len(k) > 1:
+            valid = False
             amt = 0
             for i in k:
                 if i in basket:
                     amt += basket[i]
                     if amt >= consume[k]:
-                        return True
+                        valid = True
         elif not (k in basket and basket[k] >= consume[k]):
             valid = False
     return valid
