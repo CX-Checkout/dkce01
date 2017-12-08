@@ -15,7 +15,7 @@ def checkout(skus):
         {'consume': {'A': 5}, 'output': 200, 'savings': 50},
         {'consume': {'E': 2, 'B': 1}, 'output': 80, 'savings': 30},
         {'consume': {'A': 3}, 'output': 130, 'savings': 20},
-        {'consume': 'BB', 'output': 45, 'savings': 15},
+        {'consume': {'B': 2}, 'output': 45, 'savings': 15},
     ]
     basket = {}
 
@@ -38,6 +38,6 @@ def checkout(skus):
             total += deal['output']
 
     for item in tmp_basket:
-        total += basket[item] * prices[item]
+        total += tmp_basket[item] * prices[item]
 
     return total
