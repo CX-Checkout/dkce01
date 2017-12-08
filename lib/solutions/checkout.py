@@ -29,7 +29,7 @@ def checkout(skus):
                         total += deal[1]
                     elif isinstance(deal[1], dict):
                         for k in deal[1]:
-                            if k in basket:
+                            if k in basket and basket[k] >= deal[1][k]:
                                 total -= deal[1][k] * prices[k]
                         total += deal[0] * prices[item]
                     amount -= deal[0]
