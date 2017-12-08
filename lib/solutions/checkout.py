@@ -2,11 +2,13 @@ def criteria(consume, basket):
     print('{}\t\t{}'.format(consume, basket))
     valid = True
     for k in consume:
-        if k in basket and basket[k] >= consume[k]:
-            basket[k] -= consume[k]
-        else:
+        if not (k in basket and basket[k] >= consume[k]):
             valid = False
     return valid
+
+def consume(consume, basket):
+    for k in consume:
+        basket[k] -= consume[k]
 
 # noinspection PyUnusedLocal
 def checkout(skus):
@@ -36,6 +38,7 @@ def checkout(skus):
     tmp_basket = basket.copy()
     for deal in deals:
         while criteria(deal['consume'], tmp_basket):
+            consume(deal['consume'], tmp_basket)
             total += deal['output']
     print(tmp_basket)
 
