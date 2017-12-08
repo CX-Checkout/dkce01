@@ -4,9 +4,10 @@ def criteria(consume, basket):
         if len(k) > 1:
             amt = 0
             for i in k:
-                amt += basket[i]
-                if amt >= consume[k]:
-                    return True
+                if i in basket:
+                    amt += basket[i]
+                    if amt >= consume[k]:
+                        return True
         elif not (k in basket and basket[k] >= consume[k]):
             valid = False
     return valid
@@ -16,10 +17,11 @@ def consume(consume, basket):
         if len(k) > 1:
             for i in k:
                 amt = 0
-                if (amt + basket[i]) > consume[k]:
-                    basket[i] -= consume[k] - amt
-                else:
-                    amt += basket[i]
+                if i in basket:
+                    if (amt + basket[i]) > consume[k]:
+                        basket[i] -= consume[k] - amt
+                    else:
+                        amt += basket[i]
         else:
             basket[k] -= consume[k]
 
@@ -43,7 +45,7 @@ def checkout(skus):
         {'consume': {'A': 3}, 'output': 130, 'savings': 20},
         {'consume': {'B': 2}, 'output': 45, 'savings': 15},
         {'consume': {'N': 3, 'M': 1}, 'output': 120, 'savings': 15},
-        {'consume': {'STXYZ': 3}, 'output': 45, 'savings': 15}
+        {'consume': {'STXYZ': 3}, 'output': 45, 'savings': 15},
         {'consume': {'K': 2}, 'output': 150, 'savings': 10},
         {'consume': {'V': 2}, 'output': 90, 'savings': 10},
         {'consume': {'Q': 3}, 'output': 80, 'savings': 10},
