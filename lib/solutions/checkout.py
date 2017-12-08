@@ -1,5 +1,4 @@
 def criteria(consume, basket):
-    print('{}\t\t{}'.format(consume, basket))
     valid = True
     for k in consume:
         if not (k in basket and basket[k] >= consume[k]):
@@ -40,10 +39,8 @@ def checkout(skus):
         while criteria(deal['consume'], tmp_basket):
             consume(deal['consume'], tmp_basket)
             total += deal['output']
-    print(tmp_basket)
 
     for item in tmp_basket:
         total += tmp_basket[item] * prices[item]
-        print(tmp_basket[item] * prices[item])
 
     return total
