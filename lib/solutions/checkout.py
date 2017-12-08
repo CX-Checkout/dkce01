@@ -32,10 +32,13 @@ def checkout(skus):
                         for k in deal[1]:
                             if k in basket:
                                 basket[k] -= deal[1][k]
+                            print(basket)
+                        total += deal[0] * prices[item]
                     amount -= deal[0]
             total += amount * prices[item]
             # excess
         else:
+            print(basket[item] * prices[item])
             total += (basket[item] * prices[item])
 
     return total
