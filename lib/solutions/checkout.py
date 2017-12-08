@@ -24,6 +24,7 @@ def checkout(skus):
         if item in deals:
             amount = basket[item]
             for deal in deals[item]:
+                print(deal)
                 while amount >= deal[0]:
                     if isinstance(deal[1], int):
                         total += deal[1]
